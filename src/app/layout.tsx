@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import DefaultLayout from "./_components/default-layout";
 import { LineupProvider } from "./context/LineupContext";
 
 const inter = Inter({
@@ -26,9 +27,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
         <TRPCReactProvider cookies={cookies().toString()}>
-          <LineupProvider>
-            {children}
-          </LineupProvider>
+          <DefaultLayout>
+            <LineupProvider>
+              {children}
+            </LineupProvider>
+          </DefaultLayout>
         </TRPCReactProvider>
       </body>
     </html>
