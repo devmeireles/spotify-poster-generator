@@ -1,0 +1,12 @@
+{
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  },
+  "editor.insertSpaces": false,
+  "editor.tabSize": 2
+}
