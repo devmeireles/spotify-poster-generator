@@ -6,10 +6,12 @@ import slugfy from "~/utils/slugfy";
 
 export interface IUserContext {
 	username: string | undefined;
+	isAuth: boolean;
 }
 
 const defaultState: IUserContext = {
 	username: undefined,
+	isAuth: false,
 }
 
 export const UserContext = createContext<IUserContext>(defaultState)
@@ -31,10 +33,9 @@ export const UserProvider = (props: Props) => {
 
 	const username = data?.user.name ?? '';
 
-	console.log(username)
-
 	const contextValues: IUserContext = {
 		username: slugfy(username),
+		isAuth: data ? true : false
 	};
 
 	return <UserContext.Provider value={contextValues}>{props.children}</UserContext.Provider>
